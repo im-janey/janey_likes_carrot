@@ -1,8 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:janey_likes_carrot/screens/home/view/details_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'notification_screen.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +45,19 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(CupertinoIcons.line_horizontal_3)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.notifications_none_rounded)),
+          badges.Badge(
+            badgeStyle: badges.BadgeStyle(
+                badgeColor: Theme.of(context).colorScheme.primary),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NotificationPage()),
+                  );
+                },
+                icon: const Icon(Icons.notifications_none_rounded)),
+          )
         ],
       ),
       body: ListView(
@@ -41,70 +69,140 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: const ListTile(
-                leading: Icon(
-                  Icons.airplay,
-                  color: Colors.grey,
-                ),
+                leading: Image(image: AssetImage('assets/Rectangle 3.png')),
                 title: Text(
-                  'This is List tile',
+                  '까가가까님, \‘2천만원\' 상당 알바비 혜택 놓치지 마세요! 🥕',
                   style: TextStyle(
                     color: Colors.black,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 subtitle: Text(
-                  'List tile 1',
-                  style: TextStyle(color: Colors.grey),
+                  '당근알바 • 이벤트',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
               child: const ListTile(
-                leading: Icon(
-                  Icons.airplay,
-                  color: Colors.grey,
-                ),
+                leading: Image(image: AssetImage('assets/Rectangle 3 (1).png')),
                 title: Text(
-                  'This is List tile',
+                  '캘빈클라인 반팔',
                   style: TextStyle(
                     color: Colors.black,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(
-                  'List tile 2',
-                  style: TextStyle(color: Colors.grey),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '연일읍 • 4분 전',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      '35.000원',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PurchaseScreen()),
+                  );
+                },
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
               child: const ListTile(
-                leading: Icon(
-                  Icons.airplay,
-                  color: Colors.grey,
-                ),
+                leading: Image(image: AssetImage('assets/Rectangle 3 (3).png')),
                 title: Text(
-                  'This is List tile',
+                  '지오다노 한소희 포플린 셔츠 s (착용 x 새 옷',
                   style: TextStyle(
                     color: Colors.black,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(
-                  'List tile 3',
-                  style: TextStyle(color: Colors.grey),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '흥해읍 • 1시간 전',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      '25,000원',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: const ListTile(
+                leading: Image(image: AssetImage('assets/Rectangle 3 (4).png')),
+                title: Text(
+                  '이미스 모자 라이트블루',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '장성동 • 15시간 전',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      '45,000원',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -118,7 +216,7 @@ class HomeScreen extends StatelessWidget {
             label: '홈',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.build),
+            icon: Icon(Icons.menu),
             label: '동네생활',
           ),
           BottomNavigationBarItem(
@@ -134,10 +232,10 @@ class HomeScreen extends StatelessWidget {
             label: '나의 당근',
           ),
         ],
-        /*currentIndex: _selectedIndex,
+        currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped,*/
+        onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
