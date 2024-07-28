@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "2534414693",
+    "project_id": "carrot-e989f",
+    "storage_bucket": "carrot-e989f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2534414693:android:f1e5fc6601ad6a2832e98c",
+        "android_client_info": {
+          "package_name": "com.soda.carrot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9fBcRZe_Z9qxZqg1_lQEeeZRrzmeQBio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

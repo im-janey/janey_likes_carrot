@@ -14,7 +14,7 @@ class MyAppView extends StatelessWidget {
         title: 'janey_likes_carrot',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Color(0xffED7732)),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffED7732)),
           useMaterial3: true,
         ),
         home: BlocBuilder<AuthenticationBloc, AuthenticationState>(

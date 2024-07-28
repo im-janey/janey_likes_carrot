@@ -2,8 +2,6 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:user_repository/src/models/user.dart';
-import 'package:user_repository/src/user_repo.dart';
 import 'package:user_repository/user_repository.dart';
 
 class FirebaseUserRepo implements UserRepository {
@@ -15,9 +13,8 @@ class FirebaseUserRepo implements UserRepository {
   }) : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
   @override
-  // TODO: implement user
   Stream<MyUser?> get user {
-    return _firebaseAuth.authStateChanges().flatMap((firebaseUser) async* {
+    return _firebaseAuth.authStateChanges().switchMap((firebaseUser) async* {
       if (firebaseUser == null) {
         yield MyUser.empty;
       } else {

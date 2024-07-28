@@ -1,5 +1,5 @@
 # Project-level configuration.
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.30)
 project(janey_likes_carrot LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change

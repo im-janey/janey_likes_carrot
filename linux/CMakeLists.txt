@@ -1,6 +1,6 @@
 # Project-level configuration.
-cmake_minimum_required(VERSION 3.5)
-project(runner LANGUAGES CXX)
+# cmake_minimum_required(VERSION 3.30)
+# project(runner LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
@@ -14,7 +14,7 @@ set(APPLICATION_ID "com.example.janey_likes_carrot")
 cmake_policy(SET CMP0063 NEW)
 
 # Load bundled libraries from the lib/ directory relative to the binary.
-set(CMAKE_INSTALL_RPATH "$ORIGIN/lib")
+# set(CMAKE_INSTALL_RPATH "$ORIGIN/lib")
 
 # Root filesystem for cross-building.
 if(FLUTTER_TARGET_PLATFORM_SYSROOT)
@@ -60,11 +60,11 @@ add_definitions(-DAPPLICATION_ID="${APPLICATION_ID}")
 # not the value here, or `flutter run` will no longer work.
 #
 # Any new source files that you add to the application should be added here.
-add_executable(${BINARY_NAME}
-  "main.cc"
-  "my_application.cc"
-  "${FLUTTER_MANAGED_DIR}/generated_plugin_registrant.cc"
-)
+# add_executable(${BINARY_NAME}
+#  "main.cc"
+#  "my_application.cc"
+#  "${FLUTTER_MANAGED_DIR}/generated_plugin_registrant.cc"
+# )
 
 # Apply the standard set of build settings. This can be removed for applications
 # that need different build settings.
